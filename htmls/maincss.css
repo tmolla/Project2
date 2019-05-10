@@ -1,0 +1,22 @@
+
+.lead {
+    text-align: center;
+    font-size: 98px;
+    color: #F4A460;
+    font-family: 'Bangers', cursive;
+}
+
+.btn-secondary{
+    text-align: center;
+    font-size: 24px;
+    background-color: #F4A460;
+    color: #FDF2E9;
+    font-family: 'Bangers', cursive;
+}
+#register #sign-in {
+    float: center;
+    background-color: #F4A460;
+
+}
+
+
