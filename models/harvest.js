@@ -3,28 +3,15 @@ module.exports = function(sequelize, DataTypes) {
   // example - Orange, Peach, Tomato, Squash ...
 
   var Harvest = sequelize.define("Harvest", {
-    identifier: {
+    type: {
       type: DataTypes.STRING,
       allowNull: false,
+      unique: true,
       validate: {
         len: [1]
       }
     }
   });
-
-  Harvest.associate = function(models) {
-    Harvest.hasMany(models.Inventory, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
-
-    Harvest.hasMany(models.Log, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
-  };
 
   return Harvest;
 };
