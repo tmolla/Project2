@@ -1,33 +1,85 @@
-<div id="home">
-  <div class="container">
-    <div class="row">
-      <div class="col-8 offset-2">
-        <h1>{{msg}}</h1>
-        <h2>This is our Home Page!</h2>
-        <form class="clearfix mb-4" action="POST">
-          <div class="form-group">
-            <label for="example-text">Example Text</label>
-            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal3">
+  Login
+</button>
+
+<!-- Registration Modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-backdrop="false" data-dismiss="modal"
+  data-target=".bd-example-modal-xl">
+  Huge modal
+</button>
+
+<!-- Login Modal -->
+<div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModal3Label"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModal3Label">Login</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="login-page">
+          <div class="form">
+            <form class="login-form">
+              <input type="text" placeholder="username" id="userName">
+              <input type="password" placeholder="password" id="password">
+              <button id="loginSubmitBtn">login</button>
+              <p class="message">Not registered? <a href="#">Create an account</a></p>
+            </form>
           </div>
-          <div class="form-group">
-            <label for="example-description">Example Description</label>
-            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
-          </div>
-          <button id="submit" class="btn btn-primary float-right">Submit</button>
-        </form>
-        <h3>Examples:</h3>
-        <ul id="example-list" class="list-group">
-          {{#each examples}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-          {{/each}}
-        </ul>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
 </div>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
+<!-- Registration Modal -->
+<div class="modal fade bd-example-modal-xl" id="regModal" tabindex="-1" role="dialog" aria-labelledby="myHugeModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content" style='background-color:rgb(106, 195, 255);'>
+
+      <img src="../htmls/images/fresh 4.png" class="center" alt="rip xd">
+
+      <div class="container">
+
+        <body style="background-color:rgb(106, 195, 255);">
+      </div>
+      <div class="container">
+        <form>
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="inputEmail4">Email</label>
+              <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+            </div>
+          </div>
+
+
+          <div class="form-group">
+            <label for="inputAddress">Address</label>
+            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputPhoneNum">Phone Number</label>
+              <input type="text" class="form-control" id="inputPhoneNum">
+              <!-- <p id="phoneNumText" class="lead">Please input as 1234567 instead of 123-4567</p> -->
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <button type="button" id="regSubmitBtn" class="btn btn-primary">Submit</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+      </div>
+      <img src="../htmls/images/happyapple.png" class="center" alt="rip xd">
+    </div>
+  </div>
+</div>

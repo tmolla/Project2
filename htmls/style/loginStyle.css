@@ -1,46 +1,3 @@
-
-.lead, h1 {
-    text-align: center;
-    font-size: 98px;
-    color: #F4A460;
-    font-family: 'Bangers', cursive;
-}
-
-.btn-secondary{
-    text-align: center;
-    font-size: 24px;
-    background-color: #F4A460;
-    color: #FDF2E9;
-    font-family: 'Bangers', cursive;
-}
-
-#register #sign-in {
-    float: center;
-    background-color: #F4A460;
-
-}
-
-p {
-    text-align: center;
-    font-size: 24px;
-    color: #F4A460;
-    font-family: 'Bangers', cursive;
-}
-
-.head-container {
-    font-size: 50px;
-    font-family: 'Bangers', cursive;
-}
-
-.navbar {
-    text-align: center;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: #62e75c;
-    color: gray;
-}
-/* CSS for modals */
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
 .login-page {
@@ -156,7 +113,4 @@ body {
     font-family: "Roboto", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-}
-.landingPage{
-    background-color:rgba(255, 243, 71, 0.952);
 }

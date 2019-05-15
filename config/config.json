@@ -1,14 +1,14 @@
 {
   "development": {
     "username": "root",
-    "password": "mysql$62",
+    "password": "Tdaca12-23*",
     "database": "eatafreshdb",
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": "mysql$62",
+    "password": "Tdaca12-23*",
     "database": "testdb",
     "host": "localhost",
     "dialect": "mysql",
