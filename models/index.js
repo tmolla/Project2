@@ -3,9 +3,10 @@
 var fs = require("fs");
 var path = require("path");
 var Sequelize = require("sequelize");
-var basename = path.basename(module.filename);
+var basename = path.basename(module.filename); //index.js
 var env = process.env.NODE_ENV || "development";
-var config = require(__dirname + "/../config/config.json")[env];
+var config = require(__dirname + "/../config/config.json")[env]; //This line picks up development for now
+
 var db = {};
 
 if (config.use_env_variable) {
@@ -26,6 +27,7 @@ fs.readdirSync(__dirname)
     );
   })
   .forEach(function(file) {
+    console.log("Before " + file)
     var model = sequelize.import(path.join(__dirname, file));
     db[model.name] = model;
   });
