@@ -2,24 +2,32 @@
 <html lang="en-us">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eat -A- Fresh </title>
-    <!--bootstrap CSS-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!--our css sheet-->
-    <link rel="stylesheet" type="text/css" href="../style/maincss.css">
-    <link rel="stylesheet" type="text/css" href="../style/reset.css">
-    <!--Google Fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Bangers|Paytone+One" rel="stylesheet">
-    <!--Favicon-->
-    <link rel="icon" href="../images/fresh 4.png" type="image/gif" sizes="16x16">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eat -A- Fresh </title>
+  <!--bootstrap CSS-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!--reset css sheet-->
+  <link rel="stylesheet" type="text/css" href="/style/reset.css">
+  <!--Google Fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Bangers|Paytone+One" rel="stylesheet">
+  <!--Main css-->
+  <link rel="stylesheet" type="text/css" href="/style/maincss.css">
+
+
+  <!--Favicon-->
+  <link rel="icon" href="../images/fresh 4.png" type="image/gif" sizes="16x16">
 </head>
 
-<body background="../images/my_backyard_garden2.jpg">
-  
+<body>
+
   {{{body}}}
+
+  <!--Navbar-->
+  <nav class="navbar">
+    <span class="navbar-brand mb-0 h1">©2019 Anthony Moonen, Anthony Fatato, Telahoun Molla & Emma LaPalm</span>
+  </nav>
 
   <!--Bootstrap JS-->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -57,7 +65,7 @@
       sessionStorage.setItem("zip", zip);
       sessionStorage.setItem("phoneNumber", phoneNumber);
 
-    
+
       $('#regModal').on('shown.bs.modal', function (e) {
 
         var bLazy = new Blazy();
