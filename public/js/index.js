@@ -1,37 +1,27 @@
 // Get references to page elements
-var $exampleText = $("#example-text");
-var $exampleDescription = $("#example-description");
-var $submitBtn = $("#submit");
-var $exampleList = $("#example-list");
+//var $exampleText = $("#example-text");
+// var $exampleDescription = $("#example-description");
+//var $submitBtn = $("#submit");
+//var $exampleList = $("#example-list");
+var $loginSubmitBtn = $("#loginSubmitBtn");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveExample: function (example) {
+  login: function(user) {
+    console.log("Hello you!");
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
       },
-      type: "POST",
-      url: "api/examples",
-      data: JSON.stringify(example)
-    });
-  },
-  getExamples: function () {
-    return $.ajax({
-      url: "api/examples",
-      type: "GET"
-    });
-  },
-  deleteExample: function (id) {
-    return $.ajax({
-      url: "api/examples/" + id,
-      type: "DELETE"
+      type: "GET",
+      url: "api/uses/login",
+      data: JSON.stringify(user)
     });
   }
 };
 
 // refreshExamples gets new examples from the db and repopulates the list
-var refreshExamples = function () {
+/*var refreshExamples = function () {
   API.getExamples().then(function (data) {
     var $examples = data.map(function (example) {
       var $a = $("<a>")
@@ -76,7 +66,6 @@ var handleFormSubmit = function (event) {
 
     createdAt: "2019-05-14T14:31:40.000Z",
     updatedAt: "2019-05-14T22:13:47.000Z"
-
   };
 
   if (!(example.text && example.description)) {
@@ -84,7 +73,7 @@ var handleFormSubmit = function (event) {
     return;
   }
 
-  API.saveExample(user).then(function() {
+  API.saveExample(user).then(function () {
     refreshExamples();
   });
 
@@ -103,7 +92,26 @@ var handleDeleteBtnClick = function () {
     refreshExamples();
   });
 };
-
+*/
+var handleMySubmit = function(event) {
+  event.preventDefault();
+  console.log("hello");
+  var user = {
+    Email: $("#email")
+      .val()
+      .trim(),
+    Password: $("#password")
+      .val()
+      .trim()
+  };
+  console.log(user);
+  API.login(user).then(function(data) {
+    console.log(data);
+    //refreshExamples();
+  });
+};
 // Add event listeners to the submit and delete buttons
-$submitBtn.on("click", handleFormSubmit);
-$exampleList.on("click", ".delete", handleDeleteBtnClick);
+//$submitBtn.on("click", handleFormSubmit);
+//$exampleList.on("click", ".delete", handleDeleteBtnClick);
+console.log(555555);
+$loginSubmitBtn.on("click", handleMySubmit);
