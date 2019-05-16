@@ -38,34 +38,38 @@ var API = {
 };
 
 // refreshExamples gets new examples from the db and repopulates the list
-/*var refreshExamples = function () {
-  API.getExamples().then(function (data) {
-    var $examples = data.map(function (example) {
-      var $a = $("<a>")
-        .text(example.text)
-        .attr("href", "/example/" + example.id);
+// var refreshUserProfile = function() {
+//   API.getUser().then(function(data) {
+// var $examples = data.map(function (example) {
+//   var $a = $("<a>")
+//     .text(example.text)
+//     .attr("href", "/example/" + example.id);
 
-      var $li = $("<li>")
-        .attr({
-          class: "list-group-item",
-          "data-id": example.id
-        })
-        .append($a);
+//   var $li = $("<li>")
+//     .attr({
+//       class: "list-group-item",
+//       "data-id": example.id
+//     })
+//     .append($a);
 
-      var $button = $("<button>")
-        .addClass("btn btn-danger float-right delete")
-        .text("ｘ");
+//   var $button = $("<button>")
+//     .addClass("btn btn-danger float-right delete")
+//     .text("ｘ");
 
-      $li.append($button);
+//   $li.append($button);
 
-      return $li;
-    });
+//   return $li;
+// });
 
-    $exampleList.empty();
-    $exampleList.append($examples);
-  });
-};
-
+// $exampleList.empty();
+// $exampleList.append($examples);
+//   $("#userName").val(data.Name);
+//   $("#userAddress").val(data.Address);
+//   $("#userEmail").val(data.EMila);
+//   $("#userPhone").val(data.Phonenumber);
+// });
+// };
+/*
 // handleFormSubmit is called whenever we submit a new example
 // Save the new example to the db and refresh the list
 var handleFormSubmit = function (event) {
@@ -123,12 +127,17 @@ var handleMySubmit = function(event) {
   };
   console.log(user);
   API.login(user).then(function(res) {
-    if (!res){
-      console.log("no shit")
+    if (!res) {
+      console.log("no shit");
     } else {
-      console.log(res);
+      console.log("Returned user " + res);
+      $authDiv.hide();
+      $detailInfoDiv.show();
+      $("#userName").text(res.Name);
+      $("#userAddress").text(res.Address);
+      $("#userEmail").text(res.EMail);
+      $("#userPhone").text(res.Phone);
     }
-    //refreshExamples();
   });
 };
 
@@ -179,5 +188,4 @@ var handleRegister = function(event) {
 //$exampleList.on("click", ".delete", handleDeleteBtnClick);
 console.log(555555);
 $loginSubmitBtn.on("click", handleMySubmit);
-$regSubmitBtn.on("click", handleRegister)
-
+$regSubmitBtn.on("click", handleRegister);
