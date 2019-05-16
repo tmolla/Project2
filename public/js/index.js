@@ -8,12 +8,13 @@ var $regSubmitBtn = $("#regSubmitBtn");
 var $authDiv = $("#authDiv");
 var $detailInfoDiv = $("#detailInfoDiv");
 
+
 $authDiv.show();
 $detailInfoDiv.hide();
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  login: function(user) {
+  login: function (user) {
     console.log("Hello you!" + JSON.stringify(user));
     return $.ajax({
       headers: {
@@ -24,7 +25,7 @@ var API = {
       data: JSON.stringify(user)
     });
   },
-  regisgerUser: function(userInfo) {
+  regisgerUser: function (userInfo) {
     console.log("regiserUser " + JSON.stringify(userInfo));
     return $.ajax({
       headers: {
@@ -110,9 +111,10 @@ var handleDeleteBtnClick = function () {
   });
 };
 */
-var handleMySubmit = function(event) {
+var handleMySubmit = function (event) {
   event.preventDefault();
   console.log("in handleMySubmit");
+
   var user = {
     EMail: $("#email")
       .val()
@@ -121,18 +123,28 @@ var handleMySubmit = function(event) {
       .val()
       .trim()
   };
+
   console.log(user);
-  API.login(user).then(function(res) {
-    if (!res){
-      console.log("no shit")
+  API.login(user).then(function (res) {
+    if (!res) {
+      var now = DateTime.local();
+      console.log(now);
+      console.log("no shit");
     } else {
       console.log(res);
+
+      sessionStorage.setItem("id", res.id);
+
+      $authDiv.hide();
+      $detailInfoDiv.show();
+
+      console.log(res.id);
     }
     //refreshExamples();
   });
 };
 
-var handleRegister = function(event) {
+var handleRegister = function (event) {
   event.preventDefault();
   console.log("in handleRegister");
   var userInfo = {
@@ -165,8 +177,9 @@ var handleRegister = function(event) {
   };
 
   console.log(userInfo);
-  API.regisgerUser(userInfo).then(function(res) {
+  API.regisgerUser(userInfo).then(function (res) {
     if (!res) {
+      console.log(DateTime.local());
       console.log("no shit");
     } else {
       console.log(res);
