@@ -22,11 +22,10 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/api/users/login", function(req, res) {
-    console.log(req.body);
+  app.post("/api/users/login", function(req, res) {
     db.User.findOne({
       where: {
-        password: req.body.password,
+        Password: req.body.Password,
         EMail: req.body.EMail
       }
     }).then(function(dbuser) {

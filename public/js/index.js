@@ -4,18 +4,35 @@
 //var $submitBtn = $("#submit");
 //var $exampleList = $("#example-list");
 var $loginSubmitBtn = $("#loginSubmitBtn");
+var $regSubmitBtn = $("#regSubmitBtn");
+var $authDiv = $("#authDiv");
+var $detailInfoDiv = $("#detailInfoDiv");
+
+$authDiv.show();
+$detailInfoDiv.hide();
 
 // The API object contains methods for each kind of request we'll make
 var API = {
   login: function(user) {
-    console.log("Hello you!");
+    console.log("Hello you!" + JSON.stringify(user));
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
       },
-      type: "GET",
-      url: "api/uses/login",
+      type: "POST",
+      url: "api/users/login",
       data: JSON.stringify(user)
+    });
+  },
+  regisgerUser: function(userInfo) {
+    console.log("regiserUser " + JSON.stringify(userInfo));
+    return $.ajax({
+      headers: {
+        "Content-Type": "application/json"
+      },
+      type: "POST",
+      url: "api/users",
+      data: JSON.stringify(userInfo)
     });
   }
 };
@@ -95,9 +112,9 @@ var handleDeleteBtnClick = function () {
 */
 var handleMySubmit = function(event) {
   event.preventDefault();
-  console.log("hello");
+  console.log("in handleMySubmit");
   var user = {
-    Email: $("#email")
+    EMail: $("#email")
       .val()
       .trim(),
     Password: $("#password")
@@ -105,8 +122,55 @@ var handleMySubmit = function(event) {
       .trim()
   };
   console.log(user);
-  API.login(user).then(function(data) {
-    console.log(data);
+  API.login(user).then(function(res) {
+    if (!res){
+      console.log("no shit")
+    } else {
+      console.log(res);
+    }
+    //refreshExamples();
+  });
+};
+
+var handleRegister = function(event) {
+  event.preventDefault();
+  console.log("in handleRegister");
+  var userInfo = {
+    Name: $("#inputName")
+      .val()
+      .trim(),
+    EMail: $("#inputEmail")
+      .val()
+      .trim(),
+    Password: $("#inputPassword")
+      .val()
+      .trim(),
+    Phone: $("#inputPhone")
+      .val()
+      .trim(),
+    Address: $("#inputAddress")
+      .val()
+      .trim(),
+    City: $("#inputCity")
+      .val()
+      .trim(),
+    State: $("#inputState")
+      .val()
+      .trim(),
+    Zip: $("#inputZip")
+      .val()
+      .trim(),
+    createdAt: "2019-05-15T12:34:44.000Z",
+    updatedAt: "2019-05-15T12:34:44.000Z"
+  };
+
+  console.log(userInfo);
+  API.regisgerUser(userInfo).then(function(res) {
+    if (!res) {
+      console.log("no shit");
+    } else {
+      console.log(res);
+    }
     //refreshExamples();
   });
 };
@@ -115,3 +179,5 @@ var handleMySubmit = function(event) {
 //$exampleList.on("click", ".delete", handleDeleteBtnClick);
 console.log(555555);
 $loginSubmitBtn.on("click", handleMySubmit);
+$regSubmitBtn.on("click", handleRegister)
+
