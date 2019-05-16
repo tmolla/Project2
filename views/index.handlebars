@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-12 text-center">
+        <div class="col-12 text-center" id="authDiv">
             <img src="images/fresh 4.png">
             <h1 class="lead">Offer or Obtain</h1>
             <!-- Button trigger modal LEAVING AS REFRENCE-->
@@ -14,7 +14,94 @@
         </div>
     </div>
 </div>
+<hr>
+<div class="col-12 text-center" id="detailInfoDiv">
+  <div class="row">
+  <div class="col-4">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Member</h4>
+          <h6 class="card-subtitle mb-2 text-muted">User Name</h6>
+          <p class="card-text">
+            Here we can put any detail we like about the current user
+          </p>
+          <a href="#!" class="card-link">Card link</a>
+          {{!-- <a href="#!" class="card-link">Update</a> --}}
+          <a data-target="#regModal" data-toggle="modal" class="MainNavText" id="MainNavHelp" 
+            href="#regModal">Update</a>
+        </div>
+      </div>
+    </div>  
+  <div class="col-8">
+    <form class="form-inline">
+        <div class="form-group">
+          <label for="formGroupExampleInput">Harvest</label>
+          <select class="custom-select" id="formGroupExampleInput">
+              <option selected>Open this select menu</option>
+              <option value="1">kale</option>
+              <option value="2">Orange</option>
+              <option value="3">Carrot</option>
+          </select>         
+        </div>
+        <div class="form-group">
+          <label for="formGroupExampleInput2">Quantity</label>
+          <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="1">
+        </div>
+        <div class="custom-control custom-radio">
+          <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+          <label class="custom-control-label" for="customRadio1">Share</label>
+        </div>
+        <div class="custom-control custom-radio">
+          <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+          <label class="custom-control-label" for="customRadio2">Take</label>
+        </div>        
+      </form>
+  </div>
+  </div>
+  <hr>
+  <div>
+    <div class="card-columns">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Share</h4>
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Share</h4>
+          <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Take</h4>
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Share</h4>
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Take</h4>
+          <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Take</h4>
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
+
+</div>
 <!-- Login Modal -->
 <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModal3Label"
     aria-hidden="true">
@@ -30,7 +117,7 @@
                 <div class="login-page">
                     <div class="form">
                         <form class="login-form">
-                            <input type="text" placeholder="email" id="email">
+                            <input type="text" placeholder="EMail" id="email">
                             <input type="password" placeholder="password" id="password">
                             <button id="loginSubmitBtn">login</button>
                             <p class="message">Not registered? <a href="#">Create an account</a></p>
@@ -50,37 +137,58 @@
     aria-hidden="true">
     <div class="modal-dialog modal-xl">
         <div class="modal-content" style='background-color:rgb(106, 195, 255);'>
-
-            <img src="../htmls/images/fresh 4.png" class="center" alt="rip xd">
-
-            <div class="container">
-
+            <img src="/images/fresh 4.png" class="center" alt="rip xd" width="128" height="128">
+            {{!-- <div class="container">
                 <body style="background-color:rgb(106, 195, 255);">
-            </div>
+            </div> --}}
             <div class="container">
                 <form>
+                   <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="inputName">Name</label>
+                            <input type="text" class="form-control" id="inputName" placeholder="first and last name">
+                        </div>
+                    </div>
                     <div class="form-row">
                         <div class="form-group col-md-12">
                             <label for="inputEmail4">Email</label>
                             <input type="email" class="form-control" id="inputEmail" placeholder="Email">
                         </div>
                     </div>
-
-
-                    <div class="form-group">
-                        <label for="inputAddress">Address</label>
-                        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-                    </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="inputPhoneNum">Phone Number</label>
-                            <input type="text" class="form-control" id="inputPhoneNum">
+                            <label for="inputPassword">Password</label>
+                            <input type="text" class="form-control" id="inputPassword">
+                        </div>
+                    </div>
+                                         
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputPhone">Phone Number</label>
+                            <input type="text" class="form-control" id="inputPhone">
                             <!-- <p id="phoneNumText" class="lead">Please input as 1234567 instead of 123-4567</p> -->
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label for="inputAddress">Address</label>
+                        <input type="text" class="form-control" id="inputAddress" placeholder="address">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputCity">City</label>
+                        <input type="text" class="form-control" id="inputCity" placeholder="city">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputState">State</label>
+                        <input type="text" class="form-control" id="inputState" placeholder="state">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputZip">Zip</label>
+                        <input type="text" class="form-control" id="inputZip" placeholder="zip">
+                    </div>
+
                     <div class="row">
                         <div class="col-md-12">
-                            <button type="button" id="regSubmitBtn" class="btn btn-primary">Submit</button>
+                            <button type="button" id="regSubmitBtn" class="btn btn-secondary">Submit</button>
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         </div>
                     </div>
@@ -155,5 +263,4 @@
     </div>
 </div>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
 <script src="/js/index.js"></script>
