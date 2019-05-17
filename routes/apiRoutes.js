@@ -52,6 +52,13 @@ module.exports = function(app) {
     });
   });
 
+  // Create a new log Entry
+  app.post("/api/logs", function(req, res) {
+    db.Log.create(req.body).then(function(dblog) {
+      res.json(dblog);
+    });
+  });
+
   //update user information
   app.put("/api/users/:id", function(req, res) {
     db.User.update(req.body, {
@@ -65,9 +72,7 @@ module.exports = function(app) {
 
   //Find all share and take activities by all users
   app.get("/api/log", function(req, res) {
-    db.Log.findAll({
-      include: [db.Harvest]
-    }).then(function(dblogs) {
+    db.Log.findAll({}).then(function(dblogs) {
       res.json(dblogs);
     });
   });
@@ -77,8 +82,7 @@ module.exports = function(app) {
     db.Log.findOne({
       where: {
         id: req.params.id
-      },
-      include: [db.Harvest]
+      }
     }).then(function(dblogs) {
       res.json(dblogs);
     });
@@ -89,17 +93,9 @@ module.exports = function(app) {
     db.Log.findAll({
       where: {
         userid: req.params.uid
-      },
-      include: [db.Harvest]
+      }
     }).then(function(dbuser) {
       res.json(dbuser);
-    });
-  });
-
-  // Create a new log Entry
-  app.post("/api/logs", function(req, res) {
-    db.Log.create(req.body).then(function(dbLog) {
-      res.json(dbLog);
     });
   });
 

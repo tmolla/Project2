@@ -1,15 +1,9 @@
 // Get references to page elements
-//var $exampleText = $("#example-text");
-// var $exampleDescription = $("#example-description");
-//var $submitBtn = $("#submit");
-//var $exampleList = $("#example-list");
 var $loginSubmitBtn = $("#loginSubmitBtn");
 var $regSubmitBtn = $("#regSubmitBtn");
 var $authDiv = $("#authDiv");
-var $detailInfoDiv = $("#detailInfoDiv");
-
-$authDiv.show();
-$detailInfoDiv.hide();
+var $btnLogOff = $("#btnLogoff");
+var $btnHarvest = $("#btnHarvest");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
@@ -22,6 +16,16 @@ var API = {
       type: "POST",
       url: "api/users/login",
       data: JSON.stringify(user)
+    });
+  },
+  newLog: function(logEntry) {
+    return $.ajax({
+      headers: {
+        "Content-Type": "application/json"
+      },
+      type: "POST",
+      url: "api/logs",
+      data: JSON.stringify(logEntry)
     });
   },
   regisgerUser: function(userInfo) {
@@ -128,15 +132,13 @@ var handleMySubmit = function(event) {
   console.log(user);
   API.login(user).then(function(res) {
     if (!res) {
-      console.log("no shit");
+      console.log("no data");
+      //put some error message here
     } else {
-      console.log("Returned user " + res);
-      $authDiv.hide();
-      $detailInfoDiv.show();
-      $("#userName").text(res.Name);
-      $("#userAddress").text(res.Address);
-      $("#userEmail").text(res.EMail);
-      $("#userPhone").text(res.Phone);
+      //save userid in localStorage for later reference
+      localStorage.setItem("userID", res.id);
+      //load user detail page
+      window.location.href = "/userinfo/" + res.id;
     }
   });
 };
@@ -183,9 +185,41 @@ var handleRegister = function(event) {
     //refreshExamples();
   });
 };
-// Add event listeners to the submit and delete buttons
-//$submitBtn.on("click", handleFormSubmit);
-//$exampleList.on("click", ".delete", handleDeleteBtnClick);
-console.log(555555);
+
+var handleHarvestSubmit = function(event) {
+  event.preventDefault();
+  console.log("in handleSubmit");
+
+  var logEntry = {
+    UserId: localStorage.getItem("userID"),
+    sharing: $("input[id='customRadio1']:checked", "#harvest").val() === "on",
+    quantity: $("#inputQuantity")
+      .val()
+      .trim(),
+    harvest: $("#iputHarvest option:selected")
+      .text()
+      .trim(),
+    createdAt: "2019-05-15T12:34:44.000Z",
+    updatedAt: "2019-05-15T12:34:44.000Z"
+  };
+  console.log(logEntry);
+  API.newLog(logEntry).then(function(res) {
+    if (res) {
+      location.reload();
+    }
+  });
+};
+
+var handleLogOff = function(event) {
+  event.preventDefault();
+  console.log("in logoff");
+  //save userid in localStorage for later reference
+  localStorage.removeItem("userID");
+  //load user detail page
+  window.location.href = "/";
+};
+
 $loginSubmitBtn.on("click", handleMySubmit);
 $regSubmitBtn.on("click", handleRegister);
+$btnHarvest.on("click", handleHarvestSubmit);
+$btnLogOff.on("click",handleLogOff);

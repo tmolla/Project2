@@ -10,8 +10,8 @@
   </div>
   <hr>
   {{!-- <div class="col-12 text-center" id="detailInfoDiv"> --}}
-  <div class="row" id="detailInfoDiv">
-    <div class="col-3">
+  {{!-- <div class="row" id="detailInfoDiv">
+    <div class="col-sm-3">
       <div class="card">
         <img src="/images/fresh 4.png" class="card-img-top" alt="logo">
         <div class="card-body">
@@ -29,12 +29,12 @@
         </div>
       </div>  
     </div>
-    <div class="col-9">
+    <div class="col-sm-9">
       <div class="row">
-        <form class="form-inline">
+        <form class="form-inline" id="harvest">
           <div class="form-group">
-            <label for="formGroupExampleInput">Harvest</label>
-            <select class="custom-select" id="formGroupExampleInput">
+            <label for="formHarvestSelection">Harvest</label>
+            <select class="custom-select" id="formHarvestSelection">
                 <option selected>Open this select menu</option>
                 <option value="1">kale</option>
                 <option value="2">Orange</option>
@@ -57,47 +57,50 @@
       <hr>
       <div calss="row">
         <div class="card-columns">
-          <div class="card">
+          {{#each logs}}
+            {{>logs/log-block }}
+          {{/each}}
+          {{!-- <div class="card">
             <div class="card-body">
               <h4 class="card-title">Share</h4>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-body">
-              <h4 class="card-title">Share</h4>
-              <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-body">
-              <h4 class="card-title">Take</h4>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+              <p class="card-text">5 lb of Kale</p>
             </div>
           </div>
           <div class="card">
             <div class="card-body">
               <h4 class="card-title">Share</h4>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <p class="card-text">10 lb of Carrot</p>
             </div>
           </div>
           <div class="card">
             <div class="card-body">
               <h4 class="card-title">Take</h4>
-              <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+              <p class="card-text"> 2 lb of Potato</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Share</h4>
+              <p class="card-text">20 lb of Oranges</p>
             </div>
           </div>
           <div class="card">
             <div class="card-body">
               <h4 class="card-title">Take</h4>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+              <p class="card-text">1 lb of Apple</p>
             </div>
           </div>
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Take</h4>
+              <p class="card-text">3 lb of Tomatoe</p>
+            </div>
+          </div> --}}
         </div>
       </div>
     </div>
   </div>
-</div>
+</div> --}}
 <!-- Login Modal -->
 <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModal3Label"
     aria-hidden="true">

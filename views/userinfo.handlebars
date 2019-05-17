@@ -1,0 +1,62 @@
+<div class="row" id="detailInfoDiv">
+    <div class="col-sm-3">
+      <div class="card mt-3 ml-3">
+        <img src="/images/fresh 4.png" class="card-img-top" alt="logo">
+        <div class="card-body">
+          <h3 class="card-title">Member Information:</h3>
+          {{!-- <h6 class="card-subtitle mb-2 text-muted">User Name</h6> --}}
+          <p class="card-text">
+            {{#with user}}
+                <p id="userName">{{Name}}</p>
+                <p id="userAddress">{{Address}}</p>
+                <p id="userEmail">{{Email}}</p>
+                <p id="userPhone">{{Phone}}</p>
+            {{/with}}
+          </p>
+          <div class="card-footer">
+            <button type="submit" class="btn btn-primary btn-sm" id="btnLogoff">Log off</button>
+            <button type="submit" class="btn btn-primary btn-sm" id="btnupdate">Update Info</button>
+            {{!-- <a data-target="#regModal" data-toggle="modal" class="MainNavText" id="MainNavHelp" href="#regModal">Update User Information</a> --}}
+          </div>
+        </div>
+      </div>  
+    </div>
+    <div class="col-sm-9">
+      <div class="row">
+        <form class="form-inline mt-3" style="color: Yellow; font-size:x-large" id="harvest">
+          <div class="form-group">
+            <label for="iputHarvest">Harvest</label>
+            <select class="custom-select" id="iputHarvest">
+                {{#each harvest}}
+                    <option value="'"{{id}}"'">{{type}}</option>
+                {{/each}}
+            </select>         
+            <label for="inputQuantity">Quantity (in lb)</label>
+            <input type="text" class="form-control" id="inputQuantity" placeholder="1">
+            <div class="custom-control custom-radio">
+              <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+              <label class="custom-control-label" for="customRadio1">Share</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+              <label class="custom-control-label" for="customRadio2">Accept</label>
+            </div>  
+          </div>      
+            <button type="submit" class="btn btn-secondary mb-2" id="btnHarvest">Submit</button>
+        </form>
+      </div>
+      <hr style="border: 1px solid red; width:90%">
+      <div calss="row">
+        <div class="card-columns m-3">
+        {{#if logs}}
+          {{#each logs}}
+            {{>logs/log-block }}
+          {{/each}}
+        {{/if}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
