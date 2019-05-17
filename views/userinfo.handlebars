@@ -1,58 +1,142 @@
 <div class="row" id="detailInfoDiv">
-    <div class="col-sm-3">
-      <div class="card mt-3 ml-3">
-        <img src="/images/fresh 4.png" class="card-img-top" alt="logo">
-        <div class="card-body">
-          <h3 class="card-title">Member Information:</h3>
+  <div class="col-sm-3">
+    <div class="card mt-3 ml-3">
+      <img src="/images/fresh 4.png" class="card-img-top" alt="logo">
+      <div class="card-body">
+          {{#with user}}
+          <p class="card-title">{{Name}}</p>
+            {{!-- <hr class="mb-0" style="background-color: #990000"> --}}
           {{!-- <h6 class="card-subtitle mb-2 text-muted">User Name</h6> --}}
           <p class="card-text">
-            {{#with user}}
-                <p id="userName">{{Name}}</p>
-                <p id="userAddress">{{Address}}</p>
-                <p id="userEmail">{{Email}}</p>
-                <p id="userPhone">{{Phone}}</p>
-            {{/with}}
-          </p>
-          <div class="card-footer">
-            <button type="submit" class="btn btn-primary btn-sm" id="btnLogoff">Log off</button>
-            <button type="submit" class="btn btn-primary btn-sm" id="btnupdate">Update Info</button>            {{!-- <a data-target="#regModal" data-toggle="modal" class="MainNavText" id="MainNavHelp" href="#regModal">Update User Information</a> --}}
+          {{!-- <p id="userName">{{Name}}</p> --}}
+          <hr class="mb-0" style="background-color: #990000">
+          <h5>Address:</h5>
+          <h5 id="userAddress">{{Address}}</h5>
+          <div class="d-inline-block">
+            <h5 id="userCity">{{City}}</h5>  
+          </div>        
+          <div class="d-inline-block">
+            <h5 id="userState">{{State}}</h5>
+          </div>
+          <div class="d-inline-block">
+            <h5 id="userZip">{{Zip}}</h5>
+          </div>
+          <hr class="mb-0" style="background-color: #990000">
+          <h5 id="userEmail">Email: {{EMail}}</h5>
+          <h5 id="userPhone">Phone: {{Phone}}</h5>
+          {{/with}}
+        </p>
+        <div class="card-footer col-12 text-center mt-4">
+          <button type="submit" class="btn btn-secondary" id="btnLogoff">Log off</button>
+          <button type="button" class="btn btn-secondary" id="btnUpdateInfo" data-toggle="modal"
+            data-target="#updateModal">
+            Update
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-9">
+    <div class="row">
+      <form class="form-inline mt-3" style="color: Yellow; font-size:x-large" id="harvest">
+        <div class="form-group">
+          <label for="iputHarvest">Harvest</label>
+          <select class="custom-select" id="iputHarvest">
+            {{#each harvest}}
+            <option value="'" {{id}}"'">{{type}}</option>
+            {{/each}}
+          </select>
+          <label for="inputQuantity">Quantity (in lb)</label>
+          <input type="text" class="form-control" id="inputQuantity" placeholder="1">
+          <div class="custom-control custom-radio">
+            <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+            <label class="custom-control-label" for="customRadio1">Share</label>
+          </div>
+          <div class="custom-control custom-radio">
+            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+            <label class="custom-control-label" for="customRadio2">Accept</label>
           </div>
         </div>
-      </div>  
+        <button type="submit" class="btn btn-secondary mb-2" id="btnHarvest">Submit</button>
+      </form>
     </div>
-    <div class="col-sm-9">
-      <div class="row">
-        <form class="form-inline mt-3" style="color: Yellow; font-size:x-large" id="harvest">
-          <div class="form-group">
-            <label for="iputHarvest">Harvest</label>
-            <select class="custom-select" id="iputHarvest">
-                {{#each harvest}}
-                    <option value="'"{{id}}"'">{{type}}</option>
-                {{/each}}
-            </select>         
-            <label for="inputQuantity">Quantity (in lb)</label>
-            <input type="text" class="form-control" id="inputQuantity" placeholder="1">
-            <div class="custom-control custom-radio">
-              <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-              <label class="custom-control-label" for="customRadio1">Share</label>
+    <hr style="border: 1px solid red; width:90%">
+    <div calss="row">
+      <div class="card-columns m-3">
+        {{#if logs}}
+        {{#each logs}}
+        {{>logs/log-block }}
+        {{/each}}
+        {{/if}}
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- update Modal -->
+<div class="modal" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalCenteredLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content" style='background-color:rgb(106, 195, 255);'>
+      {{!-- <div class="modal-content"> --}}
+      <div class="modal-header">
+        <span class=" col-12 text-center"><img src="/images/fresh 4.png" class="center" alt="rip xd" width="128"
+            height="128">
+          <p class="modal-title" id="updateModalCenteredLabel">Update Member</p>
+        </span>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="inputName">Name</label>
+              <input type="text" class="form-control" id="inputName" placeholder="first and last name">
             </div>
-            <div class="custom-control custom-radio">
-              <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-              <label class="custom-control-label" for="customRadio2">Accept</label>
-            </div>  
-          </div>      
-            <button type="submit" class="btn btn-secondary mb-2" id="btnHarvest">Submit</button>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="inputEmail4">Email</label>
+              <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputPassword">Password</label>
+              <input type="text" class="form-control" id="inputPassword">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputPhone">Phone Number</label>
+              <input type="text" class="form-control" id="inputPhone">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputAddress">Address</label>
+            <input type="text" class="form-control" id="inputAddress" placeholder="address">
+          </div>
+          <div class="form-group">
+            <label for="inputCity">City</label>
+            <input type="text" class="form-control" id="inputCity" placeholder="city">
+          </div>
+          <div class="form-group">
+            <label for="inputState">State</label>
+            <input type="text" class="form-control" id="inputState" placeholder="state">
+          </div>
+          <div class="form-group">
+            <label for="inputZip">Zip</label>
+            <input type="text" class="form-control" id="inputZip" placeholder="zip">
+          </div>
         </form>
       </div>
-      <hr style="border: 1px solid red; width:90%">
-      <div calss="row">
-        <div class="card-columns m-3">
-        {{#if logs}}
-          {{#each logs}}
-            {{>logs/log-block }}
-          {{/each}}
-        {{/if}}
-        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" id="btnUpdateSubmit">Save changes</button>
       </div>
     </div>
   </div>
