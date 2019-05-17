@@ -14,25 +14,19 @@ module.exports = function(sequelize, DataTypes) {
         isNumeric: true,
         min: 0
       }
+    },
+
+    harvest: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1]
+      }
     }
   });
 
   Log.associate = function(models) {
-    Log.hasOne(models.Harvest, {
-      foreginKey: {
-        alloNull: false
-      }
-    });
-  };
-
-  Log.associate = function(models) {
     Log.belongsTo(models.User, {
-      foreginKey: {
-        allowNull: false
-      }
-    });
-
-    Log.belongsTo(models.Harvest, {
       foreginKey: {
         allowNull: false
       }
