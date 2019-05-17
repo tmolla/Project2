@@ -9,98 +9,7 @@
     </div>
   </div>
   <hr>
-  {{!-- <div class="col-12 text-center" id="detailInfoDiv"> --}}
-  {{!-- <div class="row" id="detailInfoDiv">
-    <div class="col-sm-3">
-      <div class="card">
-        <img src="/images/fresh 4.png" class="card-img-top" alt="logo">
-        <div class="card-body">
-          <h4 class="card-title">Member</h4>
-          <h6 class="card-subtitle mb-2 text-muted">User Name</h6>
-          <p class="card-text">
-            <p id="userName">Name</p>
-            <p id="userAddress">Address</p>
-            <p id="userEmail">Email</p>
-            <p id="userPhone">Phone</p>
-          </p>
-          <div class="card-footer">
-            <a data-target="#regModal" data-toggle="modal" class="MainNavText" id="MainNavHelp" href="#regModal">Update User Information</a>
-          </div>
-        </div>
-      </div>  
-    </div>
-    <div class="col-sm-9">
-      <div class="row">
-        <form class="form-inline" id="harvest">
-          <div class="form-group">
-            <label for="formHarvestSelection">Harvest</label>
-            <select class="custom-select" id="formHarvestSelection">
-                <option selected>Open this select menu</option>
-                <option value="1">kale</option>
-                <option value="2">Orange</option>
-                <option value="3">Carrot</option>
-            </select>         
-            <label for="formGroupExampleInput2">Quantity</label>
-            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="1">
-            <div class="custom-control custom-radio">
-              <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-              <label class="custom-control-label" for="customRadio1">Share</label>
-            </div>
-            <div class="custom-control custom-radio">
-              <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-              <label class="custom-control-label" for="customRadio2">Take</label>
-            </div>  
-          </div>      
-            <button type="submit" class="btn btn-primary mb-2">Submit</button>
-        </form>
-      </div>
-      <hr>
-      <div calss="row">
-        <div class="card-columns">
-          {{#each logs}}
-            {{>logs/log-block }}
-          {{/each}}
-          {{!-- <div class="card">
-            <div class="card-body">
-              <h4 class="card-title">Share</h4>
-              <p class="card-text">5 lb of Kale</p>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-body">
-              <h4 class="card-title">Share</h4>
-              <p class="card-text">10 lb of Carrot</p>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-body">
-              <h4 class="card-title">Take</h4>
-              <p class="card-text"> 2 lb of Potato</p>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-body">
-              <h4 class="card-title">Share</h4>
-              <p class="card-text">20 lb of Oranges</p>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-body">
-              <h4 class="card-title">Take</h4>
-              <p class="card-text">1 lb of Apple</p>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-body">
-              <h4 class="card-title">Take</h4>
-              <p class="card-text">3 lb of Tomatoe</p>
-            </div>
-          </div> --}}
-        </div>
-      </div>
-    </div>
-  </div>
-</div> --}}
+  
 <!-- Login Modal -->
 <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModal3Label"
     aria-hidden="true">
@@ -137,9 +46,6 @@
     <div class="modal-dialog modal-xl">
         <div class="modal-content" style='background-color:rgb(106, 195, 255);'>
             <img src="/images/fresh 4.png" class="center" alt="rip xd" width="128" height="128">
-            {{!-- <div class="container">
-                <body style="background-color:rgb(106, 195, 255);">
-            </div> --}}
             <div class="container">
                 <form>
                    <div class="form-row">
@@ -187,76 +93,10 @@
 
                     <div class="row">
                         <div class="col-md-12">
-                            <button type="button" id="regSubmitBtn" class="btn btn-secondary">Submit</button>
+                            <button type="button" id="regSubmitBtn" data-dismiss="modal" class="btn btn-secondary">Submit</button>
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         </div>
                     </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!--Edit Profile Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle">Edit Your Profile</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                ...
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Edit Profile</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!--Give Modal-->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle">Select Products to Give</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Give Products</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Take Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle">Select Products to Take</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Take Produce</button>
             </div>
         </div>
     </div>
