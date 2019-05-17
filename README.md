@@ -1,5 +1,13 @@
 # Project2
-Project 2
+The purpose behind our project was to build a convenient app for people to buy, sell, or trade produce locally.
+For this project we tried to implement travis-ci to proof read our code.. which was fairly difficult.
 
-This is a test---is it working???
-lets try this again gentlemen
+
+
+
+
+
+
+
+Anthony Fatato, Telahoun Molla - Back End
+Anthony M, Emma Lapalm - Front End
