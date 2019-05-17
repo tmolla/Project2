@@ -61,6 +61,20 @@ module.exports = function(app) {
 
   //update user information
   app.put("/api/users/:id", function(req, res) {
+    console.log("/api/users/:id");
+    console.log(req.body);
+    db.User.update(req.body, {
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbuser) {
+      res.json(dbuser);
+    });
+  });
+
+  app.put("userinfo/api/users/:id", function(req, res) {
+    console.log("userinfo/api/users/:id");
+    console.log(res.body);
     db.User.update(req.body, {
       where: {
         id: req.params.id
@@ -93,6 +107,24 @@ module.exports = function(app) {
     db.Log.findAll({
       where: {
         userid: req.params.uid
+      }
+    }).then(function(dbuser) {
+      res.json(dbuser);
+    });
+  });
+
+  // Create a new log Entry
+  app.post("/userinfo/api/logs", function(req, res) {
+    console.log(" in htmlRoute path /userinfo/api/logs");
+    db.Log.create(req.body).then(function(dblog) {
+      res.json(dblog);
+    });
+  });
+
+  app.get("/userinfo/api/user/:id", function(req, res) {
+    db.User.findOne({
+      where: {
+        id: req.params.id
       }
     }).then(function(dbuser) {
       res.json(dbuser);
