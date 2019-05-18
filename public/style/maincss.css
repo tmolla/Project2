@@ -28,6 +28,12 @@ body {
     color: #990000 ;
     font-family: 'Bangers', cursive;
 }
+h4 {
+    text-align: center;
+    font-size: 24px;
+    color: #990000 ;
+    font-family: 'Bangers', cursive;
+}
 .btn-secondary{
     text-align: center;
     font-size: 24px;
@@ -42,20 +48,50 @@ body {
 p {
     text-align: center;
     font-size: 24px;
-    color: #990000;
+    color: #4d4d4d;
     font-family: 'Bangers', cursive;
+}
+#cards {
+    color: #990000 ;
+    position: center;
+}
+.testCards, .purpCard {
+    text-align: center;
+    font-stretch: bold;
+    padding: 15px;
 }
 .head-container {
     font-size: 50px;
     font-family: 'Bangers', cursive;
 }
+#harvest {
+    width: 50px;
+}
+.harvestBar {
+    font-family: 'Bangers', cursive;
+    color: #FDF2E9;
+}
 .navbar {
     text-align: center;
     position: fixed;
     bottom: 0;
-    width: 100%;
+    left:0;
+    right:0;
     background-color: #990000;
     color: #FDF2E9;
+}
+#logoIMG{
+    position: center;
+}
+#regModal {
+    height: 725px;
+    width: 900px;
+    margin-right: 350px;
+    margin-left: 350px;
+    background-color: #ffffff;
+    font-weight: bold;
+    opacity: 0.8;
+    filter: alpha(opacity=70); /* For IE8 and earlier */
 }
 /* CSS for modals */
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
@@ -85,21 +121,7 @@ p {
     box-sizing: border-box;
     font-size: 14px;
 }
-.form button {
-    font-family: "Roboto", sans-serif;
-    text-transform: uppercase;
-    outline: 0;
-    background: #4CAF50;
-    width: 100%;
-    border: 0;
-    padding: 15px;
-    color: #FFFFFF;
-    font-size: 14px;
-    -webkit-transition: all 0.3 ease;
-    transition: all 0.3 ease;
-    cursor: pointer;
-}
-.form button:hover, .form button:active, .form button:focus {
+.form button:hover, .form button .form button:focus {
     background: #43A047;
 }
 .form .message {

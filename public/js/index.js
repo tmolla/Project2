@@ -60,83 +60,6 @@ var API = {
   }
 };
 
-// refreshExamples gets new examples from the db and repopulates the list
-// var refreshUserProfile = function() {
-//   API.getUser().then(function(data) {
-// var $examples = data.map(function (example) {
-//   var $a = $("<a>")
-//     .text(example.text)
-//     .attr("href", "/example/" + example.id);
-
-//   var $li = $("<li>")
-//     .attr({
-//       class: "list-group-item",
-//       "data-id": example.id
-//     })
-//     .append($a);
-
-//   var $button = $("<button>")
-//     .addClass("btn btn-danger float-right delete")
-//     .text("ｘ");
-
-//   $li.append($button);
-
-//   return $li;
-// });
-
-// $exampleList.empty();
-// $exampleList.append($examples);
-//   $("#userName").val(data.Name);
-//   $("#userAddress").val(data.Address);
-//   $("#userEmail").val(data.EMila);
-//   $("#userPhone").val(data.Phonenumber);
-// });
-// };
-/*
-// handleFormSubmit is called whenever we submit a new example
-// Save the new example to the db and refresh the list
-var handleFormSubmit = function (event) {
-  event.preventDefault();
-
-  var user = {
-    Name: userName,
-    Address: address,
-    Email: email,
-    Phone: phoneNumber,
-    City: city,
-    State: state,
-    Zip: zip,
-    Password: password,
-
-    createdAt: "2019-05-14T14:31:40.000Z",
-    updatedAt: "2019-05-14T22:13:47.000Z"
-  };
-
-  if (!(example.text && example.description)) {
-    alert("You must enter an example text and description!");
-    return;
-  }
-
-  API.saveExample(user).then(function () {
-    refreshExamples();
-  });
-
-  $exampleText.val("");
-  $exampleDescription.val("");
-};
-
-// handleDeleteBtnClick is called when an example's delete button is clicked
-// Remove the example from the db and refresh the list
-var handleDeleteBtnClick = function () {
-  var idToDelete = $(this)
-    .parent()
-    .attr("data-id");
-
-  API.deleteExample(idToDelete).then(function () {
-    refreshExamples();
-  });
-};
-*/
 var handleMySubmit = function(event) {
   event.preventDefault();
   var user = {
@@ -199,13 +122,23 @@ var handleRegister = function(event) {
     } else {
       console.log(res);
     }
-    //refreshExamples();
   });
 };
 
 var handleHarvestSubmit = function(event) {
   event.preventDefault();
-  console.log("in Harves submit");
+  console.log(
+    "1 in Harves submit comment is " +
+      $("#textComment")
+        .text()
+        .trim()
+  );
+  console.log(
+    "2 in Harves submit comment is " +
+      $("#textComment")
+        .val()
+        .trim()
+  );
   var logEntry = {
     UserId: localStorage.getItem("userID"),
     sharing: $("input[id='customRadio1']:checked", "#harvest").val() === "on",
@@ -214,6 +147,9 @@ var handleHarvestSubmit = function(event) {
       .trim(),
     harvest: $("#iputHarvest option:selected")
       .text()
+      .trim(),
+    comment: $("#textComment")
+      .val()
       .trim(),
     createdAt: "2019-05-15T12:34:44.000Z",
     updatedAt: "2019-05-15T12:34:44.000Z"
