@@ -1,31 +1,28 @@
 <div class="row" id="detailInfoDiv">
-  <div class="col-sm-3">
-    <div class="card mt-3 ml-3">
+  <div class="col-md-3">
+    <div class="card m-3">
       <img src="/images/fresh 4.png" class="card-img-top" alt="logo">
       <div class="card-body">
-          {{#with user}}
+        {{#with user}}
           <p class="card-title">{{Name}}</p>
-            {{!-- <hr class="mb-0" style="background-color: #990000"> --}}
-          {{!-- <h6 class="card-subtitle mb-2 text-muted">User Name</h6> --}}
           <p class="card-text">
-          {{!-- <p id="userName">{{Name}}</p> --}}
-          <hr class="mb-0" style="background-color: #990000">
-          <h5>Address:</h5>
-          <h5 id="userAddress">{{Address}}</h5>
-          <div class="d-inline-block">
-            <h5 id="userCity">{{City}}</h5>  
-          </div>        
-          <div class="d-inline-block">
-            <h5 id="userState">{{State}}</h5>
-          </div>
-          <div class="d-inline-block">
-            <h5 id="userZip">{{Zip}}</h5>
-          </div>
-          <hr class="mb-0" style="background-color: #990000">
-          <h5 id="userEmail">Email: {{EMail}}</h5>
-          <h5 id="userPhone">Phone: {{Phone}}</h5>
-          {{/with}}
-        </p>
+            <hr class="mb-0" style="background-color: #990000">
+            <h5>Address:</h5>
+            <h5 id="userAddress">{{Address}}</h5>
+            <div class="d-inline-block">
+              <h5 id="userCity">{{City}}</h5>  
+            </div>        
+            <div class="d-inline-block">
+              <h5 id="userState">{{State}}</h5>
+            </div>
+            <div class="d-inline-block">
+              <h5 id="userZip">{{Zip}}</h5>
+            </div>
+            <hr class="mb-0" style="background-color: #990000">
+            <h5 id="userEmail">Email: {{EMail}}</h5>
+            <h5 id="userPhone">Phone: {{Phone}}</h5>
+          </p>
+        {{/with}}
         <div class="card-footer col-12 text-center mt-4">
           <button type="submit" class="btn btn-secondary" id="btnLogoff">Log off</button>
           <button type="button" class="btn btn-secondary" id="btnUpdateInfo" data-toggle="modal"
@@ -38,16 +35,21 @@
   </div>
   <div class="col-sm-9">
     <div class="row">
-      <form class="form-inline mt-3" style="color: Yellow; font-size:x-large" id="harvest">
+      <form class="form-inline m-3" style="color: Yellow; font-size:x-large" id="harvest">
         <div class="form-group">
+          <span class="m-3">
           <label for="iputHarvest">Harvest</label>
           <select class="custom-select" id="iputHarvest">
             {{#each harvest}}
             <option value="'" {{id}}"'">{{type}}</option>
             {{/each}}
           </select>
-          <label for="inputQuantity">Quantity (in lb)</label>
-          <input type="text" class="form-control" id="inputQuantity" placeholder="1">
+          </span>
+          <span class="m-3">
+            <label for="inputQuantity">Quantity (in lb)</label>
+            <input type="text" class="form-control" id="inputQuantity" placeholder="1">
+          </span>
+          <span class="m-3">
           <div class="custom-control custom-radio">
             <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
             <label class="custom-control-label" for="customRadio1">Share</label>
@@ -56,11 +58,16 @@
             <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
             <label class="custom-control-label" for="customRadio2">Accept</label>
           </div>
+          </span>
+          <span>
+            <label for="textComment">Comment</label>
+            <textarea class="form-control pt-2" id="textComment" rows="2"></textarea>
+          </span>
+          <button type="submit" class="btn btn-secondary mx-3" id="btnHarvest">Submit</button>
         </div>
-        <button type="submit" class="btn btn-secondary mb-2" id="btnHarvest">Submit</button>
       </form>
     </div>
-    <hr style="border: 1px solid red; width:90%">
+    <hr class="m-4" style="border: 1px solid red">
     <div calss="row">
       <div class="card-columns m-3">
         {{#if logs}}
@@ -75,7 +82,7 @@
 </div>
 
 <!-- update Modal -->
-<div class="modal" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalCenteredLabel"
+<div class="modal" id="updateModal" style="opacity:0.8" tabindex="-1" role="dialog" aria-labelledby="updateModalCenteredLabel"
   aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content" style='background-color:rgb(106, 195, 255);'>
@@ -99,7 +106,7 @@
           </div>
           <div class="form-row">
             <div class="form-group col-md-12">
-              <label for="inputEmail4">Email</label>
+              <label for="inputEmail">Email</label>
               <input type="email" class="form-control" id="inputEmail" placeholder="Email">
             </div>
           </div>
