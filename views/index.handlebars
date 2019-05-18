@@ -1,15 +1,54 @@
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-12 text-center" id="authDiv">
-      <img src="images/fresh 4.png">
-      <h1 class="lead">Share &amp; Accept</h1>
-      {{!-- These buttons trigger modal forms --}}
-      <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#regModal">register</button>
-      <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal3">sign-in</button>
+    <div class="row">
+        <div class="col-12 text-center" id="authDiv">
+            <img src="images/fresh 4.png">
+            <h1 class="lead">Share &amp; Accept</h1>
+            {{!-- These buttons trigger modal forms --}}
+            <button type="button" class="btn btn-secondary" data-toggle="modal"
+                data-target="#regModal">register</button>
+            <button type="button" class="btn btn-secondary" data-toggle="modal"
+                data-target="#exampleModal3">sign-in</button>
+        </div>
     </div>
-  </div>
-  <hr>
-  
+    <hr>
+    <div class="cardContainer mt-3">
+        <div class="row">
+            <div class="col-4" style="opacity: 0.8; font-size:x-large">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="purpCard">Our Purpose</p>
+                        <hr>
+                        <h5 id="cards" class="card-text">Many people In Tucson have gardens,
+                            and many people grow more than what they can consume!
+                            Instead of throwing away your produce or turning it into compost, Why not share it?</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4" style="opacity: 0.8; font-size:x-large">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="purpCard">Vision</p>
+                        <hr>
+                        <h5 id="cards" class="card-text">To create a website for gardners to share what they grow 
+                            To help bring a community of growers come together and support one another. 
+                            To make each backyard a mini farmland!</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4" style="opacity: 0.8; font-size:x-large">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="testCards">Testimonials</p>
+                        <hr>
+                        <h5 id="cards" class="card-text">I have grown so many eggplant this year that we haven't been able to
+                            eat it
+                            all. I'm so
+                            greatful for this app, I've been able to trade local growers for other produce!</h5>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
 <!-- Login Modal -->
 <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModal3Label"
     aria-hidden="true">
@@ -41,14 +80,14 @@
 </div>
 
 <!-- Registration Modal -->
-<div class="modal fade bd-example-modal-xl" id="regModal" tabindex="-1" role="dialog" aria-labelledby="myHugeModalLabel"
-    aria-hidden="true">
+<div class="modal" id="regModal" tabindex="-1" role="dialog" aria-labelledby="updateModalCenteredLabel"
+  aria-hidden="true">
     <div class="modal-dialog modal-xl">
-        <div class="modal-content" style='background-color:rgb(106, 195, 255);'>
-            <img src="/images/fresh 4.png" class="center" alt="rip xd" width="128" height="128">
+        <div class="modal-content">
             <div class="container">
+                <img id="logoIMG" src="/images/fresh 4.png" alt="rip xd" width="128" height="128">
                 <form>
-                   <div class="form-row">
+                    <div class="form-row">
                         <div class="form-group col-md-12">
                             <label for="inputName">Name</label>
                             <input type="text" class="form-control" id="inputName" placeholder="first and last name">
@@ -66,7 +105,7 @@
                             <input type="text" class="form-control" id="inputPassword">
                         </div>
                     </div>
-                                         
+
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="inputPhone">Phone Number</label>
@@ -93,7 +132,8 @@
 
                     <div class="row">
                         <div class="col-md-12">
-                            <button type="button" id="regSubmitBtn" data-dismiss="modal" class="btn btn-secondary">Submit</button>
+                            <button type="button" id="regSubmitBtn" data-dismiss="modal"
+                                class="btn btn-secondary">Submit</button>
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         </div>
                     </div>
